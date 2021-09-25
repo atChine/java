@@ -1,37 +1,29 @@
-package student;
+package Overrid02;
 
-public class Students {
+public class Students extends Person {
 
-	String name;
-	int age;
-	String classes;
-	int score;
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getClasses() {
-		return classes;
-	}
-	public void setClasses(String classes) {
-		this.classes = classes;
-	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
+	private double socer;
+
+	public Students(String name, int age, double socer) {
+		super(name, age);
+		this.socer = socer;
 	}
 
-	
-	
+	public double getSocer() {
+		return socer;
+	}
+
+	public void setSocer(double socer) {
+		this.socer = socer;
+	}
+
+	@Override
+	public String say() {
+		return super.say() + " socer:" + socer;
+	}
+
+	public void study() {
+		System.out.println(getName() + "ÕýÔÚÑ§java¡£¡£¡£¡£¡£");
+	}
+
 }
