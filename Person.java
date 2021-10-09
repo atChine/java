@@ -1,52 +1,29 @@
-package Exercise04;
-
 public class Person {
     private String name;
-    private String sex;
-    private int age;
-
-    public Person(String name, String sex, int age) {
+    private Vehicles vehicles;
+    public Person(String name, Vehicles vehicles) {
         this.name = name;
-        this.sex = sex;
-        this.age = age;
+        this.vehicles = vehicles;
     }
 
-    public String getName() {
-        return name;
+    public void PassRiver(){
+        if(!(vehicles instanceof Boat)) {
+            //先得到船
+            vehicles = VehiclesFactory.getBoat();
+        }
+            vehicles.work();
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public void common(){
+        //得到马
+        if(!(vehicles instanceof Horse)){
+            vehicles=VehiclesFactory.getHorse();
+        }
+        vehicles.work();
     }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public String play(){
-        return name+"爱玩";
-    }
-    public String baseInof(){
-        return "姓名："+name+"\n性别"+sex+"\n年龄"+age;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", age=" + age +
-                '}';
+    public void Fire(){
+        if(!(vehicles instanceof Plan)){
+            vehicles=VehiclesFactory.getPlan();
+        }
+        vehicles.work();
     }
 }
