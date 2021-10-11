@@ -1,62 +1,24 @@
-import java.util.Arrays;
-import java.util.Comparator;
-
+package com;
+//懒汉式
 public class Exercise02 {
     public static void main(String[] args) {
-        Book[] books = new Book[4];
-        books[0]=new Book("西游记dfgdfgdfgdfgd",20);
-        books[1]=new Book("金瓶梅d",50);
-        books[2]=new Book("水浒传",9);
-        books[3]=new Book("java入门到放弃",100);
-
-        Arrays.sort(books, new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                Book book01=(Book) o1;
-                Book book02=(Book) o2;
-                double priseVul=book02.getName().length()-book01.getName().length();
-                if(priseVul>0){
-                    return -1;
-                }else if(priseVul<0){
-                    return 1;
-                }else {
-                    return 0;
-                }
-            }
-        });
-        System.out.println(Arrays.toString(books));
+        Order order01=Order.getOrder();
+        Order order02=Order.getOrder();
+        System.out.println(order01==order02);
     }
 }
-class Book{
-    private String name;
-    private double price;
-
-    public String getName() {
-        return name;
+class Order{
+    //1.私有化构造器
+    public Order() {
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public Book(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+    //2.声明当前类对象，但不初始化
+    private static Order order=null;
+    //3.声明公共类，返回当前对象的值
+    public static Order getOrder(){
+        if(order==null){
+            order=new Order();
+        }
+        return order;
     }
 }
