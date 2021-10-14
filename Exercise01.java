@@ -1,29 +1,49 @@
-package com;
-/*
-单例设计模式，就是在某个系统中，对某个类只有一个实例化对象
- */
+package Exercise;
 
-//饿汉式
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Exercise01 {
     public static void main(String[] args) {
-        Bank bank01=Bank.getBank();
-        Bank bank02=Bank.getBank();
-        System.out.println(bank01==bank02);
+
+        Window window = new Window();
+        Thread t1 = new Thread(window);
+        Thread t2 = new Thread(window);
+        Thread t3 = new Thread(window);
+
+        t1.setName("窗口1");
+        t2.setName("窗口2");
+        t3.setName("窗口3");
+
+        t1.start();
+        t2.start();
+        t3.start();
     }
 }
-class Bank{
-    private String name;
 
-    //1.私有化构造器
-    private Bank(String name) {
-        this.name = name;
-    }
+class Window implements Runnable {
+    private int ticket = 100;
+    private ReentrantLock lock = new ReentrantLock(true);
 
-    //2.在内部创建类对象
-    private static Bank bank=new Bank("王冰冰");
-
-    //3.提供公共的静态方法去调用这个唯一的类对象
-    public static Bank getBank(){
-        return bank;
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                lock.lock();
+                if (ticket > 0) {
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(Thread.currentThread().getName() +
+                            "卖出的票号为" + ticket);
+                    ticket--;
+                } else {
+                    break;
+                }
+            } finally {
+                lock.unlock();
+            }
+        }
     }
 }
