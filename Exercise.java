@@ -1,18 +1,25 @@
+import org.junit.Test;
+
 public class Exercise {
-    public static void main(String[] args) {
-        int n = 1;
-        Integer integer = new Integer(n);
-        System.out.println(integer);
+    public static void main(String[] args){
 
-        Integer integer1 = new Integer(50);
-        int i1 = integer1.intValue();
 
-        int a = 10;
-        String a1 = Integer.toString(a);
-        System.out.println(a1);
-
-        String b = "123";
-        int b1 = Integer.parseInt(b);
-        System.out.println(b1);
+    } 
+    public String reverse(String str, int startIndex, int endIndex) {
+        if (str != null) {
+            String reverseStr = str.substring(0, startIndex);
+            for (int i = endIndex; i >= startIndex; i--) {
+                reverseStr += str.charAt(i);
+            }
+            reverseStr+=str.substring(endIndex+1);
+            return reverseStr;
+        }
+        return null;
+    }
+    @Test
+    public void Test(){
+        String str="aaaqwerbbb";
+        String reverse=reverse(str,3,6);
+        System.out.println(reverse);
     }
 }
