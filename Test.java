@@ -1,47 +1,27 @@
-package Exercise04;
-
-import Except03.Stduent;
+package Exercise01;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;;
 
 public class Test {
-    public static void main(String[] args) {
-        Student student = new Student("çŽ‹å†°å†°", "å¥³", 31, "200011");
-        student.printInof();
-        System.out.println("------------------");
-        Person[] people = new Person[4];
-        people[0] = new Student("çŽ‹å†°å†°", "å¥³", 31, "200011");
-        people[1] = new Student("çŽ‹å†°å†°", "å¥³", 35, "200011");
-        people[2] = new Teacher("çŽ‹å†°å†°", "å¥³", 22, 25);
-        people[3] = new Teacher("çŽ‹å†°å†°", "å¥³", 88, 3);
-
-        Test test = new Test();
-        test.bubbleSort(people);
-        for (int i = 0; i < people.length; i++) {
-            System.out.println(people[i].toString());
-            test.tt(people[i]);
-        }
-    }
-
-    public void tt(Person p){
-        if(p instanceof Student){
-            ((Student)p).study();
-        }else if(p instanceof Teacher){
-            ((Teacher)p).teach();
-        }else {
-            System.out.println("NO");
-        }
-    }
-
-    public void bubbleSort(Person[] people) {
-        Person temp=null;
-        for (int i = 0; i < people.length - 1; i++) {
-            for (int j = 0; j < people.length - 1 - i; j++) {
-                if (people[j].getAge() < people[j + 1].getAge()) {
-                    temp = people[j];
-                    people[j] = people[j + 1];
-                    people[j + 1] = temp;
-                }
-            }
-        }
-
-    }
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) {
+		ComputerTeacher wbb01=new ComputerTeacher("Íõ±ù±ù01", 31);
+		ComputerTeacher wbb02=new ComputerTeacher("Íõ±ù±ù02", 16);
+		ComputerTeacher wbb03=new ComputerTeacher("Íõ±ù±ù03", 6);
+		ComputerTeacher wbb04=new ComputerTeacher("Íõ±ù±ù04", 12);
+		ComputerTeacher wbb05=new ComputerTeacher("Íõ±ù±ù05", 18);
+		wbb01.work();
+		
+		ArrayList<ComputerTeacher> comname=new ArrayList<>();
+		comname.add(wbb01);
+		comname.add(wbb02);
+		comname.add(wbb03);
+		comname.add(wbb04);
+		comname.add(wbb05);
+	
+		ComputerTeacher min=Collections.min(comname,new Mycomputer());
+	}
 }

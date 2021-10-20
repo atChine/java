@@ -1,34 +1,25 @@
-package Exercise04;
+package Exercise01;
 
-public class Teacher extends Person {
-    private int work_age;
-
-    public Teacher(String name, String sex, int age, int work_age) {
-        super(name, sex, age);
-        this.work_age = work_age;
-    }
-
-    public int getWork_age() {
-        return work_age;
-    }
-
-    public void setWork_age(int work_age) {
-        this.work_age = work_age;
-    }
-
-    public void teach() {
-        System.out.println("我会认真教学");
-    }
-
-    @Override
-    public String play() {
-        return super.play() + "象棋";
-    }
-
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "work_age=" + work_age +
-                '}'+super.toString();
-    }
+public abstract class Teacher {
+	private String name;
+	private int age;
+	abstract void work();
+	public Teacher(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
 }
