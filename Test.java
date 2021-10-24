@@ -1,27 +1,28 @@
-package Exercise01;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;;
+package Exercise;
+
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class Test {
-	@SuppressWarnings("unchecked")
-	public static void main(String[] args) {
-		ComputerTeacher wbb01=new ComputerTeacher("Íõ±ù±ù01", 31);
-		ComputerTeacher wbb02=new ComputerTeacher("Íõ±ù±ù02", 16);
-		ComputerTeacher wbb03=new ComputerTeacher("Íõ±ù±ù03", 6);
-		ComputerTeacher wbb04=new ComputerTeacher("Íõ±ù±ù04", 12);
-		ComputerTeacher wbb05=new ComputerTeacher("Íõ±ù±ù05", 18);
-		wbb01.work();
-		
-		ArrayList<ComputerTeacher> comname=new ArrayList<>();
-		comname.add(wbb01);
-		comname.add(wbb02);
-		comname.add(wbb03);
-		comname.add(wbb04);
-		comname.add(wbb05);
-	
-		ComputerTeacher min=Collections.min(comname,new Mycomputer());
-	}
+    public static void main(String[] args){
+        Employee e1 = new Employee("wangbingbing",31,new MyDate(1982,4,23));
+        Employee e2 = new Employee("liudehua",55,new MyDate(1962,3,23));
+        Employee e3 = new Employee("zhangxuewyu",54,new MyDate(1963,4,23));
+        Employee e4 = new Employee("liming",60,new MyDate(1950,4,23));
+        Employee e5 = new Employee("maozed",88,new MyDate(1934,8,23));
+        Employee e6 = new Employee("tang",88,new MyDate(1934,8,20));
+
+        TreeSet<Employee> set = new TreeSet<Employee>();
+        set.add(e1);
+        set.add(e2);
+        set.add(e3);
+        set.add(e4);
+        set.add(e5);
+        set.add(e6);
+
+        Iterator<Employee> iterator = set.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
 }
