@@ -1,25 +1,30 @@
+package Exercise02;
+
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class Exercise {
-    public static void main(String[] args){
-
-
-    } 
-    public String reverse(String str, int startIndex, int endIndex) {
-        if (str != null) {
-            String reverseStr = str.substring(0, startIndex);
-            for (int i = endIndex; i >= startIndex; i--) {
-                reverseStr += str.charAt(i);
-            }
-            reverseStr+=str.substring(endIndex+1);
-            return reverseStr;
-        }
-        return null;
-    }
     @Test
-    public void Test(){
-        String str="aaaqwerbbb";
-        String reverse=reverse(str,3,6);
-        System.out.println(reverse);
+    public void test() {
+        List<?> list = null;
+
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("255");
+        list1.add("f");
+        list1.add("s");
+        list1.add("s");
+        list=list1;
+
+        System.out.println(list.get(0));
+
+    }
+    public void print( List<?> list){
+        Iterator<?> iterator = list.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
     }
 }
