@@ -1,10 +1,11 @@
 package Exercise;
 
-import java.util.Objects;
-
-public class Person implements Comparable<Person>{
+public class Person {
     private String name;
     private int age;
+
+    public Person() {
+    }
 
     public Person(String name, int age) {
         this.name = name;
@@ -33,24 +34,5 @@ public class Person implements Comparable<Person>{
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
-    }
-
-    @Override
-    public int compareTo(Person o) {
-        return this.name.compareTo(name);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age &&
-                Objects.equals(name, person.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, age);
     }
 }
