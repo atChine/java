@@ -1,28 +1,15 @@
-package Exercise;
+package com.hspedu.pkg;
 
-import java.util.Iterator;
-import java.util.TreeSet;
+import com.hspedu.modifier.A;
 
 public class Test {
-    public static void main(String[] args){
-        Employee e1 = new Employee("wangbingbing",31,new MyDate(1982,4,23));
-        Employee e2 = new Employee("liudehua",55,new MyDate(1962,3,23));
-        Employee e3 = new Employee("zhangxuewyu",54,new MyDate(1963,4,23));
-        Employee e4 = new Employee("liming",60,new MyDate(1950,4,23));
-        Employee e5 = new Employee("maozed",88,new MyDate(1934,8,23));
-        Employee e6 = new Employee("tang",88,new MyDate(1934,8,20));
+    public static void main(String[] args) {
+        A a = new A();
+        //在不同包下，可以访问public 修饰的属性或方法
+        //但是不能访问 protected ,默认，private修饰的属性或方法
+        System.out.println(a.n1);
 
-        TreeSet<Employee> set = new TreeSet<Employee>();
-        set.add(e1);
-        set.add(e2);
-        set.add(e3);
-        set.add(e4);
-        set.add(e5);
-        set.add(e6);
-
-        Iterator<Employee> iterator = set.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
+        a.m1();
+        //不能访问 a.m2() a.m3() a.m4()
     }
 }
