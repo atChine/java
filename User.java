@@ -1,66 +1,79 @@
-package Exercise03;
+package com.Student.Bean;
 
-import java.util.Objects;
+import java.security.PrivateKey;
 
-public class User<T>{
-    private int id;
-    private int age;
-    private String name;
-
-    public User(int id, int age, String name) {
-        this.id = id;
-        this.age = age;
-        this.name = name;
-    }
+/**
+ * @ClassName: User
+ * @Description: TODO
+ * @Author: 高举
+ * @Date: 2021/11/20 15:12
+ * @URL：https://github.com/GaoHaiNB
+ */
+public class User {
+    private int u_id;
+    private String u_name;
+    private String u_pwd;
+    private String u_phone;
+    private int u_role;
+    private int u_isdelet;
 
     public User() {
     }
 
-    public int getId() {
-        return id;
+    public User(int u_id, String u_name, String u_pwd, String u_phone, int u_role, int u_isdelet) {
+        this.u_id = u_id;
+        this.u_name = u_name;
+        this.u_pwd = u_pwd;
+        this.u_phone = u_phone;
+        this.u_role = u_role;
+        this.u_isdelet = u_isdelet;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getU_id() {
+        return u_id;
     }
 
-    public int getAge() {
-        return age;
+    public void setU_id(int u_id) {
+        this.u_id = u_id;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getU_name() {
+        return u_name;
     }
 
-    public String getName() {
-        return name;
+    public void setU_name(String u_name) {
+        this.u_name = u_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getU_pwd() {
+        return u_pwd;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", age=" + age +
-                ", name='" + name + '\'' +
-                '}';
+    public void setU_pwd(String u_pwd) {
+        this.u_pwd = u_pwd;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id &&
-                age == user.age &&
-                Objects.equals(name, user.name);
+    public String getU_phone() {
+        return u_phone;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, age, name);
+    public void setU_phone(String u_phone) {
+        this.u_phone = u_phone;
+    }
+
+    public int getU_role() {
+        return u_role;
+    }
+
+    public void setU_role(int u_role) {
+        this.u_role = u_role;
+    }
+
+    public int getU_isdelet() {
+        return u_isdelet;
+    }
+
+    public void setU_isdelet(int u_isdelet) {
+        this.u_isdelet = u_isdelet;
     }
 }
