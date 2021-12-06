@@ -1,40 +1,68 @@
-package Exercise04;
+package com.Gaoju.School;
 
-public class Student extends Person{
-    private String stu_id;
+import java.awt.*;
 
-    public Student(String name, String sex, int age, String stu_id) {
-        super(name, sex, age);
-        this.stu_id = stu_id;
-    }
+/**
+ * @ClassName: Student
+ * @Description: TODO
+ * @Author: 高举
+ * @Date: 2021/11/26 19:17
+ * @URL：https://github.com/GaoHaiNB
+ */
+public class Student {
+    private String name;
+    private String address;
+    private String classes;
+    private String id;
+    private int score;
 
-    public String getStu_id() {
-        return stu_id;
+    public Student(String name, String address, String classes, String id, int score) {
+        this.name = name;
+        this.address = address;
+        this.classes = classes;
+        this.id = id;
+        this.score = score;
     }
+    public Student(){}
 
-    public void setStu_id(String stu_id) {
-        this.stu_id = stu_id;
-    }
-    public void study(){
-        System.out.println("我会好好学习");
-    }
-
-    @Override
-    public String play() {
-        return super.play()+"足球";
-    }
-    public void printInof(){
-        System.out.println("学生基本信息");
-        System.out.println(baseInof());
-        System.out.println("学号："+stu_id);
-        study();
-        System.out.println(play());
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "stu_id='" + stu_id + '\'' +
-                '}'+super.toString();
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getClasses() {
+        return classes;
+    }
+
+    public void setClasses(String classes) {
+        this.classes = classes;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
 }
