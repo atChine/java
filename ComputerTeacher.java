@@ -1,18 +1,15 @@
-package Exercise01;
+package com.atgao;
 
-public class ComputerTeacher extends Teacher{
-		public ComputerTeacher(String name, int age) {
-			super(name, age);
-			// TODO Auto-generated constructor stub
-		}
+import java.io.Serializable;
 
-		private String project;
+public class ComputerTeacher extends Teacher implements Serializable{
 
-		@Override
-		void work() {
-			System.out.println("我教java");
-			
-		}
-		
+	@Override
+	public String work() {
+		return "我是计算机老师";
 	}
-
+	public ComputerTeacher(String name, String addr, String project, int age) {
+		super(name, addr, project, age);
+	}
+	
+}
